@@ -152,7 +152,7 @@ knitr::include_graphics(here::here("data/figures/fig3-connectivity_score_table.p
 ```{r echo=FALSE, fig.width=4, fig.height=3, out.width="100%"}
 knitr::include_graphics(here::here("data/figures/fig4-ES_distribution_up_down.png"))
 ```
-<font size = "2">**Figure 4. ES distribution for up- and down-regulated genes.** Shown are plots of the running sum of up- and down-regulated gene sets (green curves) of an example liver cancer dataset (GSE84073 [@Broutier2017]), including the location of the maximum and minimum enrichment scores (top and bottom dashed red lines) and the leading-edge subset (vertical black lines (S genes in L) that show up at, or before, the running sum reaches the final enrichment score (the maximum deviation from zero)).</font>
+<font size = "2">**Figure 4. ES distribution for up- and down-regulated genes.** Shown are plots of the running sum of up- and down-regulated gene sets (green curves) of an example liver cancer dataset (GSE84073 [@Broutier2017]), including the location of the maximum and minimum enrichment scores (top and bottom dashed red lines) and the leading-edge subset (vertical black lines ($S$ genes in $L$) that show up at, or before, the running sum reaches the final enrichment score (the maximum deviation from zero)).</font>
 
 **Table 2. GSEA Notations** 
 
