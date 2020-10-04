@@ -44,7 +44,7 @@ The basis of several recent methods for drug repurposing is the key principle th
 
 # Introduction
 
-The manifestation of a disease or perturbation by a small molecule in a tissue leaves a characteristic imprint (a “signature”) in its gene expression profile [@Huang2019]. These signatures, recorded for thousands of diseases and drugs, form the basis of a powerful and widely-adopted method for drug repurposing called “drug-disease connectivity analysis” [@Maayan2019]. In this analysis, novel drug indications for a specific disease of interest are identified based on the extent to which the ranked drug-gene signature is a “reversal” of the disease gene signature (@Dudley2011 @Sirota2011; **Fig. 1**). Connectivity-based drug repurposing has been used to discover drugs in various cancers and non-cancer diseases [@Parvathaneni2019].
+The manifestation of a disease or perturbation by a small molecule in a tissue leaves a characteristic imprint (a “signature”) in its gene expression profile [@Huang2019]. These signatures, recorded for thousands of diseases and drugs, form the basis of a powerful and widely-adopted method for drug repurposing called “drug-disease connectivity analysis” [@Keenan2019]. In this analysis, novel drug indications for a specific disease of interest are identified based on the extent to which the ranked drug-gene signature is a “reversal” of the disease gene signature (@Dudley2011 @Sirota2011; **Fig. 1**). Connectivity-based drug repurposing has been used to discover drugs in various cancers and non-cancer diseases [@Parvathaneni2019].
 
 ```{r echo=FALSE, fig.width=12, fig.height=9, out.width="100%"}
 knitr::include_graphics(here::here("data/figures/fig1-disease_drug_connectivity.png"))
