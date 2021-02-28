@@ -1,6 +1,6 @@
 # Reconciling Multiple Connectivity Scores for Drug Repurposing
 
-Kewalin Samart<sup>1,2,\*</sup>, Phoebe Tuyishime<sup>1,3,4,\*</sup>, Arjun Krishnan<sup>4,5,\#</sup>, Janani Ravi<sup>1,\#</sup> <br> <sup>1</sup>Pathobiology and Diagnostic Investigation, Michigan State University; <sup>2</sup>Mathematics, Michigan State University; <sup>3</sup>Food Science and Nutrition, Michigan State University; <sup>4</sup>Computational Mathematics, Science and Engineering; <sup>5</sup>Biochemistry and Molecular Biology, Michigan State University. <br> <sup>\*</sup>These authors contributed equally to this work. <br> <sup>\#</sup>Corresponding authors: [arjun\@msu.edu](mailto:arjun@msu.edu){.email}; [janani\@msu.edu](mailto:janani@msu.edu){.email}
+Kewalin Samart<sup>1,2,\*</sup>, Phoebe Tuyishime<sup>1,3,4,\*</sup>, Arjun Krishnan<sup>4,5,\#</sup>, Janani Ravi<sup>1,\#</sup> <br> <sup>1</sup>Pathobiology and Diagnostic Investigation, Michigan State University; <sup>2</sup>Mathematics, Michigan State University; <sup>3</sup>Food Science and Nutrition, Michigan State University; <sup>4</sup>Computational Mathematics, Science and Engineering; <sup>5</sup>Biochemistry and Molecular Biology, Michigan State University. <br> <sup>\*</sup>These authors contributed equally to this work. <br> <sup>\#</sup>Corresponding authors: [arjun\@msu.edu](mailto:arjun@msu.edu); [janani\@msu.edu](mailto:janani@msu.edu)
 
 ## Abstract
 
@@ -29,5 +29,5 @@ drug repositioning/repurposing \| disease gene signature \| drug profile \| CMap
 
 -   Kewalin Samart \| [@KewalinSamart](//twitter.com/KewalinSamart)
 -   Phoebe Tuyishime \| [@TuyishimePhoebe](//twitter.com/TuyishimePhoebe)
--   Arjun Krishnan \| [@compbiologist](//twitter.com/compbiologist) \| [arjun\@msu.edu](mailto:arjun@msu.edu){.email}
--   Janani Ravi \| [@janani137](//twitter.com/janani137) \| [janani\@msu.edu](mailto:janani@msu.edu){.email}
+-   Arjun Krishnan \| [@compbiologist](//twitter.com/compbiologist) \| [arjun\@msu.edu](mailto:arjun@msu.edu)
+-   Janani Ravi \| [@janani137](//twitter.com/janani137) \| [janani\@msu.edu](mailto:janani@msu.edu)
