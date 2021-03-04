@@ -18,7 +18,7 @@ author:
   affiliation_url: https://cvm.msu.edu/directory/ravi
   name: Janani Ravi
   url: https://jravilab.github.io
-date: '2021-02-27'
+date: '2021-03-04'
 output:
   html: distill::distill_article
   pdf_document:
@@ -67,7 +67,7 @@ In this article, we will focus on these widely-used expression-based methods for
 knitr::include_graphics(here::here("data/figures/fig1-disease_drug_connectivity.png"))
 ```
 
-<font size = "2">**Figure 1. Drug-disease connectivity. A.** *Gene expression signatures.* Gene expression signatures. $\vec{R}$ and $\vec{S}$ are rank-ordered drug and disease gene expression signatures going from the most significantly up-regulated genes to the most significantly down-regulated genes. $S$ is the full set of genes with disease data. Without any loss in generality, only the subset of disease genes that are also part of $R$ are considered throughout (*i.e.,* $S \subseteq R$ ). $S^{+}$ and $S^{-}$ correspond to the set of most up- and down-regulated sets of disease genes, respectively. **B.** *Connectivity*. Positions of $S^{+}$ and $S^{-}$ disease genes in the ranked drug list, $R$, determine the signs of enrichment scores ($ES$; $ES_{up}$, $ES_{down}$). Positive connectivity is defined as the case when the disease signature and drug profile show similar perturbations, *i.e.,* when $ES_{up}$ is positive and/or when $ES_{down}$ is negative. This happens when $S^{+}$ predominantly appears towards the top of the drug profile or when $S^{-}$ appears predominantly towards the bottom of the drug profile (scenarios 1 and 4). Conversely, negative connectivity is defined as the case when the disease signature and drug profile show dissimilar perturbations, *i.e.,* when $ES_{up}$ is negative and/or when $ES_{down}$ is positive. This happens when $S^{+}$ predominantly appears towards the bottom of the drug profile or when $S^{-}$ appears towards the top of the drug profile (scenarios 2 and 3). Negative connectivity indicates drug reversal of disease signature. </font>
+<font size = "2">**Figure 1. Drug-disease connectivity. A.** *Gene expression signatures.* Gene expression signatures. $\vec{R}$ and $\vec{S}$ are rank-ordered drug and disease gene expression signatures going from the most significantly up-regulated genes to the most significantly down-regulated genes. $S$ is the full set of genes with disease data. Without any loss in generality, only the subset of disease genes that are also part of $R$ are considered throughout (*i.e.,* $S \subseteq R$ ). $S^{+}$ and $S^{-}$ correspond to the set of most up- and down-regulated sets of disease genes, respectively. **B.** *Connectivity*. Positions of $S^{+}$ and $S^{-}$ disease genes in the ranked drug list, $\vec{R}$, determine the signs of enrichment scores ($ES$; $ES_{up}$, $ES_{down}$). Positive connectivity is defined as the case when the disease signature and drug profile show similar perturbations, *i.e.,* when $ES_{up}$ is positive and/or when $ES_{down}$ is negative. This happens when $S^{+}$ predominantly appears towards the top of the drug profile or when $S^{-}$ appears predominantly towards the bottom of the drug profile (scenarios 1 and 4). Conversely, negative connectivity is defined as the case when the disease signature and drug profile show dissimilar perturbations, *i.e.,* when $ES_{up}$ is negative and/or when $ES_{down}$ is positive. This happens when $S^{+}$ predominantly appears towards the bottom of the drug profile or when $S^{-}$ appears towards the top of the drug profile (scenarios 2 and 3). Negative connectivity indicates drug reversal of disease signature. </font>
 
 From its inception in 2006, the exact method for connectivity analysis has evolved, with a series of proposed modifications over the past decade and a half (**Fig. 2**). The first method for connectivity analysis [@lamb_connectivity_2006] builds on the classic paper by Subramanian *et al.,* 2005 [@subramanian_gene_2005] that proposed the Gene Set Enrichment Analysis (GSEA) method. GSEA uses a modified Kolmogorov-Smirnov statistic (KS) [@hollander_nonparametric_1999] -- referred to as "enrichment score" ($ES$) -- to evaluate if genes in a certain pathway appear towards the top or bottom of a gene (differential) expression profile. Lamb *et al.,* 2006 [@lamb_connectivity_2006] built a reference database (Connectivity Map or CMap, which we refer to as CMap 1.0 in this article) with gene expression profiles for thousands of small molecules and proposed the first method for connectivity analysis based on GSEA. This method compares a query signature (disease) to each of the ranked drug-gene expression profiles in their reference database and ranks all the drugs based on their connectivity scores. A connectivity score ranges between -1 (indicating a complete 'drug-disease' reversal) and +1 (indicating perfect 'drug-disease' similarity). Another study adapted this connectivity score calculation and used it to find compounds in the L1000 LINCS collection [@duan_lincs_2014] that could be repurposed for three cancer types [@chen_reversal_2017]. This study quantified the reversal relationship between the drug and disease by computing the Reverse Gene Expression Signature ($RGES$). Finally, CMap 1.0 itself was further updated by expanding the Library of Integrated Network-based Cellular Signatures (LINCS) L1000 to more than 1.3 million profiles [@subramanian_next_2017] (referred to as CMap 2.0 in this article). Along with the expansion of data, the CMap 2.0 study also proposed another variation of the connectivity score called the weighted connectivity score that uses GSEA's weighted Kolmogorov-Smirnov enrichment statistic along with ways to normalize the resulting score and correcting them further to account for background associations.
 
@@ -100,7 +100,7 @@ Building on these general notations and terms, in the rest of this article, we d
 | $S^{+}$, $S^{-}$                     | disease up- or down-regulated genes; $S^{+} \subseteq S$, $S^{-} \subseteq S$, $S^{+} \cup S^{-} = S$                                                                                                                                        |
 | $R_{X}, S_{X}$                       | subset of drug genes ($R$) or disease genes ($S$) with the most extreme gene scores (either from the top or bottom) defined based on a user-specified threshold of fold-change and/or significance; $R_{X} \subseteq R$; $S_{X} \subseteq S$ |
 |                                      |                                                                                                                                                                                                                                              |
-| $S^{+}_{X}$, $S^{-}_{X}$             | the up- and down-regulated subsets of SX, the genes with the extreme disease gene scores; $S_{X}^{+} \cup S_{X}^{-} = S_{X}$                                                                                                                 |
+| $S^{+}_{X}$, $S^{-}_{X}$             | the up- and down-regulated subsets of $S_{X}$, the genes with the extreme disease gene scores; $S_{X}^{+} \cup S_{X}^{-} = S_{X}$                                                                                                                 |
 | $\vec{R}$, $\vec{S}$                 | rank-ordered drug or disease gene list (*i.e.,* ordered version of $R$ or $S$) from the highest to the lowest gene scores (*e.g.,* Figure 1 shows $\vec{R}$)                                                                                 |
 | $\vec{R_{abs}}$, $\vec{S_{abs}}$     | absolute rank-ordered drug or disease gene list from the highest to the lowest absolute gene scores                                                                                                                                          |
 | $\vec{R_{X}}$, $\vec{S_{X}}$         | rank-ordered gene list for $R_{X}$ and $S_{X}$                                                                                                                                                                                               |
@@ -130,10 +130,10 @@ $$         1.2. if the gene is not in $S_{X}$, calculate: $$
 P_{miss}(S_{X},i) = \displaystyle\sum_{\substack{gr_{j} \notin S_{X} \\ j \leq i}}\frac{1}{N_{R}-N_{S_{X}}}
 $$         1.3. calculate the positional enrichment score ($es_{i}$) $$
 es_{i} = P_{hit}(S_{X},i) - P_{miss}(S_{X},i)
-$$ 2. Finally, calculate the final enrichment score ($ES$): $$ES = max_{i}(es_{i}),$$ the maximum positional enrichment score. Here, $N_{R}$ and $N_{S_{X}}$ are the number of genes in the drug ($R$) and disease ($S_{X}$) gene sets. $w_{ES}$ is the weight assigned to each position in the drug profile $\vec{R}$. When $w_{ES}=0$, $N_{S_{X}^{'}} = \displaystyle\sum_{\substack{gr_{j} \in S}}|v_{drg}(gr_{j})|^{0} = N_{S},$ which results in $$
+$$ 2. Finally, calculate the final enrichment score ($ES$): $$ES = max_{i}(es_{i}), \quad \quad \quad (1.1)$$ the maximum positional enrichment score. Here, $N_{R}$ and $N_{S_{X}}$ are the number of genes in the drug ($R$) and disease ($S_{X}$) gene sets. $w_{ES}$ is the weight assigned to each position in the drug profile $\vec{R}$. When $w_{ES}=0$, $N_{S_{X}^{'}} = \displaystyle\sum_{\substack{gr_{j} \in S}}|v_{drg}(gr_{j})|^{0} = N_{S},$ which results in $$
 P_{hit}(S_{X},i) = \displaystyle\sum_{\substack{gr_{j} \in S_{X} \\ j \leq i}}\frac{|v_{drg}(gr_{j})|^{0}}{N_{S_{X}}^{'}} = \displaystyle\sum_{\substack{gr_{j} \in S_{X} \\ j \leq i}}\frac{1}{N_{S_{X}}^{'}}.
 $$ Thus, $P_{hit}(S_{X},i)$ and $P_{miss}(S_{X},i)$ are both empirical distribution functions of the positions of the disease genes (*i.e.,* $S_{X}$) and the positions of the non-disease genes (*i.e.,* $R-S_{X}$), respectively, in the drug gene list $\vec{R}$. Therefore, when $w_{ES}=0$, $ES$ (the signed maximum distance between the two functions) reduces to a signed two-sample Kolmogorov-Smirnov (KS) statistic: $$
-ES = max(P_{hit}(S_{X},i)-P_{miss}(S_{X},i)) = sign(P_{hit}(S_{X},i)-P_{miss}(S_{X},i)) \times KS 
+ES = max(P_{hit}(S_{X},i)-P_{miss}(S_{X},i)) = sign(P_{hit}(S_{X},i)-P_{miss}(S_{X},i)) \times KS \quad \quad \quad (1.2) 
 $$ where $$
 KS = max|F_{S_{X}}(i)-F_{R-S_{X}}(i)|
 $$ is the classical two-sample KS statistic, with $F_{S_{X}}$ and $F_{R-S_{X}}$ being the empirical distribution function of $S_{X}$ and $R-S_{X}$, respectively, defined as follows:
@@ -182,7 +182,7 @@ The drug-disease enrichment score ($ES$) in CMap 1.0 is adapted from GSEA. Inste
 $$
 ES = \left\{
         \begin{array}{ll}
-            a & \quad ,if \qquad a > b \\
+            a & \quad ,if \qquad a > b \quad \quad \quad (2.1)\\    
             -b & \quad ,if \qquad b > a
         \end{array}
     \right.
@@ -214,7 +214,7 @@ The final connectivity score is calculated by normalizing the raw score by divid
 $$
 CS = \left\{
         \begin{array}{ll}
-            \frac{cs}{max_{t}(cs)} & \quad ,if \qquad cs > 0 \\
+            \frac{cs}{max_{t}(cs)} & \quad ,if \qquad cs > 0 \quad \quad \quad (2.2)\\
             \frac{-cs}{min_{t}(cs)} & \quad ,if \qquad cs < 0
         \end{array}
     \right.
@@ -247,7 +247,7 @@ The Connectivity Map project was subsequently expanded into the NIH library of i
 The focus of the study by Chen *et al.,* 2017 [@chen_reversal_2017] was to use this LINCS data to not only capture expression-based drug-disease reversal relationships but also evaluate if these reversals correlate with independently-measured drug efficacies. Towards this goal, the authors selected compounds with both efficacy data in ChEMBL [@mendez_chembl_2019] and gene expression LINCS data. Using these two datasets, this study showed that the distribution of connectivity scores ($CS$) from CMap 1.0 [@lamb_connectivity_2006] are enriched at 0 and that these scores do not correlate well with $IC_{50}$ values. To address this issue, the authors proposed a new connectivity score called the Reverse Gene Expression Score ($RGES$). In this section, we present the formulation of $RGES$ using our new, consistent notation (**Table 4**).
 
 In CMap 1.0, the connectivity score for a drug is set to zero if $ES_{up}$ and $ES_{down}$, the enrichment scores for the up- and down-regulated disease gene sets have the same signs. $RGES$, on the other hand, is computed as the difference between absolute values of the two $ES$ values: $$
-RGES = |ES_{up}|-|ES_{down}|
+RGES = |ES_{up}|-|ES_{down}| \quad \quad \quad (3.1)
 $$
 
 **Summary**
@@ -283,7 +283,7 @@ $$
 Here, the correlation between cell line, $cell(t)$, and the disease, $cor(cell(t), disease))$, is the average of the Spearman correlations between the expression profiles of the cell line and disease of interest, normalized by the maximum correlation between all cell lines and the disease. Finally, $sRGES$ is defined as the following:
 
 $$
-sRGES = \displaystyle\sum_{t}^{N_{d}}(RGES(t)+f(dose(t), time(t))) \times \frac {w(t)}{N_{d}}
+sRGES = \displaystyle\sum_{t}^{N_{d}}(RGES(t)+f(dose(t), time(t))) \times \frac {w(t)}{N_{d}}\quad \quad \quad (3.2) 
 $$
 
 This study shows that these new formulations of the connectivity scores, $RGES$ and $sRGES$, show a correlation with drug $IC_{50}$ values, with drugs with low negative $RGES$ or $sRGES$ tending to have low $IC_{50}$ values.
@@ -320,7 +320,7 @@ The disease-drug enrichment score ($ES$) in CMap 2.0 is based directly on GSEA's
 $$
 WCS = \left\{
         \begin{array}{ll}
-            (ES_{up}-ES_{down})/2 & \quad,if \quad sign(ES_{up}) \ne sign(ES_{down})\\
+            (ES_{up}-ES_{down})/2 & \quad,if \quad sign(ES_{up}) \ne sign(ES_{down}) \quad \quad \quad (4.1)\\
             0 & \quad, otherwise
         \end{array}
     \right.
@@ -341,7 +341,7 @@ The Normalized Connectivity Score ($NCS$) was developed to enable the comparison
 $$
 NCS = \left\{
         \begin{array}{ll}
-            WCS / \mu_{c,dt}^{+} & \quad,if \quad sign(WCS) > 0 \\
+            WCS / \mu_{c,dt}^{+} & \quad,if \quad sign(WCS) > 0 \quad \quad \quad \quad (4.2)\\
             WCS / \mu_{c,dt}^{-} & \quad,otherwise
         \end{array}
     \right.
@@ -354,7 +354,7 @@ Here, $\mu_{c,dt}^{+}$ and $\mu_{c,dt}^{-}$ are absolute values of the means of 
 Finally, the Normalized Connectivity Score $NCS$ for a disease to a specific drug (*i.e.,* the $NCS$ for a given disease-drug pair) is converted to a tau ($\tau$) score by comparing it to $NCS$ values of that disease to all the drugs in the reference database (referred to as "touchstone" in CMap 2.0) of the same type $dt$ tested in the same cell line $c$, expressed as signed percentage value between --100 and +100:
 
 $$
-\tau = sign(NCS)\frac{100}{N_{D}}\sum_{k=1}^{N_{D}}[|NCS_{k}|<|NCS|]
+\tau = sign(NCS)\frac{100}{N_{D}}\sum_{k=1}^{N_{D}}[|NCS_{k}|<|NCS|] \quad \quad \quad (4.3)
 $$ Thus, a $\tau$ of 95 indicates that only 5% of drugs in the reference database of the same type and tested in the same cell line (containing $N_{D}$ drugs) showed stronger connectivity to the disease than the drug of interest. Since any disease is queried against the same fixed drug reference database, $\tau$ values are comparable across diseases.
 
 Another way to calculate a $\tau$ score corresponding to the $NCS$ value for a disease-drug pair is to compare to the $NCS$ values of that specific drug to all the perturbation signatures in a reference database. This comparison will yield a $\tau$ that represents the signed percentage of reference signatures that are less connected to the drug than the disease of interest. In other words, based on this comparison, a $\tau$ of 95 indicates that only 5% of signatures in a reference database showed stronger connectivity to the drug than the disease of interest. Similarly, $\tau$ values in this new setting are comparable across drugs in the reference database.
@@ -391,11 +391,11 @@ Zhang and Gant proposed a connectivity score called the Connection Strength Scor
 These motivations led the authors to propose a new scheme for ranking drug genes. In this scheme, all genes, irrespective of the direction of perturbation, are first ranked in descending order based on the absolute value of their drug gene scores. We represent this operation using the function $r^{abs}_{drg}()$ that takes one or more genes as input and returns their absolute-value-based ranks in the drug profile. Positive or negative signs are then added back to the rank of each up- or down-regulated gene, respectively, to get signed ranks, denoted as $r^{abs}_{drg}() \times sgn_{drg}()$. Similarly, the signed ranks for the disease data are obtained as $r^{abs}_{dis}() \times sgn_{dis}()$. Thus, the $i^{th}$ gene in $R$ (or $S$) gets a signed rank of $N-i+1$ or $-(N-i+1)$ depending on whether the gene is up- or down-regulated. These signed ranks are used to calculate a similarity metric between an ordered drug profile $R$ and an ordered disease signature $S$. We refer to this metric as the raw connection strength score ($css$).
 
 $$
-css(\vec{R},\vec{S}) = \sum^{N_{S}}_{\substack{i=1}}[(r^{abs}_{drg}(gs_{i}) \times sgn_{drg}(gs_{i})) \times (r^{abs}_{dis}(gs_{i}) \times sgn_{dis}(gs_{i}))]
+css(\vec{R},\vec{S}) = \sum^{N_{S}}_{\substack{i=1}}[(r^{abs}_{drg}(gs_{i}) \times sgn_{drg}(gs_{i})) \times (r^{abs}_{dis}(gs_{i}) \times sgn_{dis}(gs_{i}))] \quad \quad \quad (5.1)
 $$
 
 The raw score ($css$) is then scaled by the maximum possible score given the number of drug and disease genes ($css^{o}_{max}(N_{R},N_{S})$) to calculate a connectivity score that is referred to here as the final connection strength score (CSS). $$
-CSS = \frac{css(\vec{R},\vec{S})}{css^{o}_{max}(N_{R},N_{S})}
+CSS = \frac{css(\vec{R},\vec{S})}{css^{o}_{max}(N_{R},N_{S})} \quad \quad \quad (5.2)
 $$
 
 where $css^{o}_{max}(N_{R},N_{S}) = \sum^{N_{S}}_{i=1}(N_{R}-i+1)(N_{S}-i+1)$
@@ -403,11 +403,11 @@ where $css^{o}_{max}(N_{R},N_{S}) = \sum^{N_{S}}_{i=1}(N_{R}-i+1)(N_{S}-i+1)$
 Here, genes perturbed in the same direction (up or down) by both the drug and the disease make a positive contribution to $CSS$, while the contribution of genes perturbed in different directions will be negative. Consequently, gene signatures with mixed perturbations will result in an overall low $CSS$ with the positive and negative contributions canceling each other.
 
 As proposed by the authors, this scoring scheme can be easily adapted to the case when only an unordered gene set ($S$) is available for the disease. $$
-css(\vec{R},S) = \sum^{N_{S}}_{\substack{i=1}}[r^{abs}_{drg}(gs_{i}) \times sgn_{drg}(gs_{i})]
+css(\vec{R},S) = \sum^{N_{S}}_{\substack{i=1}}[r^{abs}_{drg}(gs_{i}) \times sgn_{drg}(gs_{i})] \quad \quad \quad \quad \quad (5.3)
 $$
 
 $$
-CSS = \frac{css(\vec{R},S)}{css^{u}_{max}(N_{R},N_{S})}
+CSS = \frac{css(\vec{R},S)}{css^{u}_{max}(N_{R},N_{S})} \quad \quad \quad (5.4)
 $$ where $css^{u}_{max}(N_{R},N_{S}) = \sum^{N_{S}}_{i=1}(N_{R}-i+1)$
 
 **Summary**
@@ -437,7 +437,7 @@ Though $CSS$ uses all genes from the drug and the disease data, it is still rank
 
 ### Whole and extreme metrics
 
-The metric $Sum$ is calculated as the difference between the sum of the drug perturbation values of all up-regulated disease genes ($v_{drg}(S^+)$) and the sum of the drug perturbation values of all down-regulated disease genes. Thus, $Sum=sum(v_{drg}(S^+))-sum(v_{drg}(S^-))$). The metric $Cosine$ captures the cosine correlation between the drug and the disease perturbation values across the common set of all genes with both data, *i.e.,* $Cos(v_{dis}(S), v_{drg}(R))$. Analogous similarity metrics can be calculated by replacing cosine correlation with Pearson ($Cor$) and Spearman ($Spe$) correlation coefficients. These metrics can also be adapted to just use a fixed number of 'extreme' genes that are most up- or down-regulated by the disease (as depicted in **Fig. 1**): $XCor$ is the extreme Pearson correlation, defined as $Cor(v_{dis}(S_{X}), v_{drg}(R_{X}))$; $XSpe$ is the extreme Spearman rank correlation, defined as $Spe(\vec{S_{X}}, \vec{R_{X}})$; $XSum$ is the extreme $Sum$, defined as $sum(v_{drg}(S_{X}^+))-sum(v_{drg}(S_{X}^-))$; and $XCos$ is the extreme cosine correlation, defined as $Cos(v_{dis}(S_{X}), v_{drg}(R_{X}))$.
+The metric $Sum$ is calculated as the difference between the sum of the drug perturbation values of all up-regulated disease genes ($v_{drg}(S^+)$) and the sum of the drug perturbation values of all down-regulated disease genes. Thus, $Sum=sum(v_{drg}(S^+))-sum(v_{drg}(S^-)) \quad (6.1)$). The metric $Cosine$ captures the cosine correlation between the drug and the disease perturbation values across the common set of all genes with both data, *i.e.,* $Cos(v_{dis}(S), v_{drg}(R)) \quad (6.2)$. Analogous similarity metrics can be calculated by replacing cosine correlation with Pearson ($Cor$) and Spearman ($Spe$) correlation coefficients. These metrics can also be adapted to just use a fixed number of 'extreme' genes that are most up- or down-regulated by the disease (as depicted in **Fig. 1**): $XCor$ is the extreme Pearson correlation, defined as $Cor(v_{dis}(S_{X}), v_{drg}(R_{X})) \quad (6.3)$; $XSpe$ is the extreme Spearman rank correlation, defined as $Spe(\vec{S_{X}}, \vec{R_{X}}) \quad (6.4)$; $XSum$ is the extreme $Sum$, defined as $sum(v_{drg}(S_{X}^+))-sum(v_{drg}(S_{X}^-)) \quad (6.5)$; and $XCos$ is the extreme cosine correlation, defined as $Cos(v_{dis}(S_{X}), v_{drg}(R_{X})) \quad (6.6)$.
 
 **Summary**
 
@@ -460,7 +460,7 @@ The weights ($w_{ij}$) for all the genes across all the drugs are gathered into 
 $$
 EWlogFC = W \circ logFC
 $$ Finally, given a query disease profile ($S$), quantifying its similarity to each column in the $EWlogFC$ matrix will reveal the association between that disease and each drug in the database. The disease-drug similarity used here is $EWCos$, defined as the cosine similarity between the vector of $logFC$ values of the disease (*e.g.,* $v_{dis}(S)$) and the column in the $EWlogFC$ matrix corresponding to that specific drug $j$. $$
-EWCos_{j} = Cos(v_{dis}(S),EWlogFC_{j})
+EWCos_{j} = Cos(v_{dis}(S),EWlogFC_{j}) \quad \quad \quad (6.7)
 $$
 
 As large-scale drug-disease gold-standards are lacking, the $\alpha$ and $k$ parameters in the weight function above are optimized to maximize the ability of $EWCos$ to match replicate instances of the same drug (see [@zhou_emudra_2018] for more details).
@@ -492,7 +492,7 @@ To check if the standardization can be applied directly for each similarity metr
 $$
 
 After applying this winsorized standardization procedure on the scores from all four methods, the final $EMUDRA$ score is calculated as follows: $$
-EMUDRA = \sum_{i}z_{i}
+EMUDRA = \sum_{i}z_{i} \quad \quad \quad (7.1)
 $$
 
 **Summary**
