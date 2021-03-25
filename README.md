@@ -20,10 +20,10 @@ drug repositioning/repurposing \| disease gene signature \| drug profile \| CMap
 
 ## About the authors
 
--   **Kewalin Samart** is an undergraduate junior majoring in Computational Mathematics, and Computational Math, Science & Engineering at Michigan State University. Her research currently focuses on disease and drug expression signatures and host-directed drug repurposing.
+-   **Kewalin Samart** is a student majoring in Computational Mathematics, and Computational Math, Science & Engineering at Michigan State University. Her research currently focuses on disease and drug expression signatures and host-directed drug repurposing.
 -   **Phoebe Tuyishime** is a recent graduate from the College of Agriculture and Natural Resources at Michigan State University. Her research focuses on infectious diseases, computational drug repurposing, and host-directed therapeutics. She will be starting her MS at Univ. British Columbia soon.
 -   **Arjun Krishnan** is an Assistant Professor in the Departments of Computational Math, Science & Engineering, and Biochemistry & Molecular Biology at Michigan State University. His group works broadly in the areas of computational genomics and biomedical data science.
--   **Janani Ravi** is an Assistant Professor (Fixed-Term) in Pathobiology and Diagnostic Investigation at Michigan State University. Her research group focuses on protein sequence-structure-function relationships, comparative genomics, and drug repurposing as they relate to infectious diseases.
+-   **Janani Ravi** is an Assistant Professor in Pathobiology and Diagnostic Investigation at Michigan State University. Her research group focuses on protein sequence-structure-function relationships, comparative genomics, and drug repurposing as they relate to infectious diseases.
 
 ### Contact
 
