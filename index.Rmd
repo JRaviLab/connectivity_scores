@@ -18,7 +18,7 @@ author:
   affiliation_url: https://cvm.msu.edu/directory/ravi
   name: Janani Ravi
   url: https://jravilab.github.io
-date: '2021-03-21'
+date: '2021-04-09'
 output:
   html: distill::distill_article
   pdf_document:
@@ -107,7 +107,7 @@ Building on these general notations and terms, in the rest of this article, we d
 | $r_{drg}()$, $r_{dis}()$             | rank function for drug or disease that takes one or more genes as input and returns a vector of their ranks in $\vec{R}$ or $\vec{S}$, respectively                                                                                          |
 | $r^{abs}_{drg}()$, $r^{abs}_{dis}()$ | absolute rank function for drug or disease that takes one or more genes as input and returns a vector of their absolute ranks in $\vec{R}$ or $\vec{S}$, respectively                                                                        |
 | $v_{drg}()$, $v_{dis}()$             | score function for drug or disease that takes one or more genes as input and returns a vector of their gene scores in $\vec{R}$ or $\vec{S}$, respectively                                                                                   |
-| $sgn_{drg}()$, $sgn_{dis}$           | sign function for drug or disease that takes one or more genes as input and returns the signs of their gene scores (+1 or --1) in $\vec{R}$ or $\vec{S}$, respectively                                                                       |
+| $sgn_{drg}()$, $sgn_{dis}()$           | sign function for drug or disease that takes one or more genes as input and returns the signs of their gene scores (+1 or --1) in $\vec{R}$ or $\vec{S}$, respectively                                                                       |
 | $t$                                  | each treatment instance (*i.e.,* a treated-and-vehicle-control pair) that results in a single drug profile $R$ or $\vec{R}$.                                                                                                                 |
 | $N_{D}$                              | total number of drug profiles ($R$ or $\vec{R}$) in the reference database                                                                                                                                                                   |
 | $N_{d}$                              | number of drug profiles ($R$ or $\vec{R}$) in the reference database that corresponds to a specific drug $d$                                                                                                                                 |
