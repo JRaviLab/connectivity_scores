@@ -591,9 +591,10 @@ font-style: normal;
 
 <p class="comment">
 <strong>For attribution, please cite this work as:</strong> <br>
-Samart K$^{*}$, Tuyishime P$^{*}$, Krishnan A^, Ravi J^. Reconciling multiple         connectivity scores for drug repurposing. *arXiv*(2020) [2009.09317](arxiv.org/abs/2009.09317) <br>
-$^{*}$co-primary authors: samartke@msu.edu; tuyishi1@msu.edu; <br> 
-^co-corresponding authors: arjun@msu.edu; janani@msu.edu.
+Samart K$^{*}$, Tuyishime P$^{*}$, Krishnan A^, Ravi J^. Reconciling multiple connectivity <br>
+        scores for drug repurposing. *arXiv*(2020) [2009.09317](arxiv.org/abs/2009.09317) <br>
+        $^{*}$co-primary authors: samartke@msu.edu; tuyishi1@msu.edu; <br> 
+        ^co-corresponding authors: arjun@msu.edu; janani@msu.edu.
 </p>
 
 <p class="comment">
