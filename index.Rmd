@@ -1,5 +1,6 @@
 ---
 title: "Reconciling Multiple Connectivity Scores for Drug Repurposing"
+description: Samart, Tuyishime, et al., 2020
 author:
 - affiliation: Mathematics, Michigan State University
   affiliation_url: https://github.com/JRaviLab
@@ -18,7 +19,7 @@ author:
   affiliation_url: https://cvm.msu.edu/directory/ravi
   name: Janani Ravi
   url: https://jravilab.github.io
-date: '2021-04-09'
+date: '2021-04-11'
 output:
   html: distill::distill_article
   pdf_document:
@@ -573,6 +574,37 @@ This work was primarily supported by US National Institutes of Health (NIH) gran
 
 # Acknowledgments
 
-We are grateful to members of the Ravi and Krishnan labs for feedback on the manuscript. \newpage
+We are grateful to members of the Ravi and Krishnan labs for feedback on the manuscript. 
 
-------------------------------------------------------------------------
+----------------------------------------
+
+<style>
+p.comment {
+background-color: #FFFFFF;
+padding: 10px;
+border: 1px solid black;
+margin-left: 25px;
+border-radius: 5px;
+font-style: normal;
+}
+</style>
+
+<p class="comment">
+<strong>For attribution, please cite this work as:</strong> <br>
+Samart K$^{*}$, Tuyishime P$^{*}$, Krishnan A^, Ravi J^. Reconciling multiple         connectivity scores for drug repurposing. *arXiv*(2020) [2009.09317](arxiv.org/abs/2009.09317) <br>
+$^{*}$co-primary authors: samartke@msu.edu; tuyishi1@msu.edu; <br> 
+^co-corresponding authors: arjun@msu.edu; janani@msu.edu.
+</p>
+
+<p class="comment">
+<strong>BiBTeX citation:</strong> <br>
+$@$article{samart_tuyishime_reconciling_2020, <br>
+        title = {Reconciling Multiple Connectivity Scores for Drug Repurposing},<br>
+        url = {https://arxiv.org/abs/2009.09317},<br>
+        author = {Samart, Kewalin and Tuyishime, Phoebe and Krishnan, Arjun and Ravi, Janani},<br>
+        year = {2020}<br>
+}
+</p>
+
+
+
