@@ -1,6 +1,6 @@
 ---
 title: "Reconciling Multiple Connectivity Scores for Drug Repurposing"
-description: Samart, Tuyishime, et al., 2020
+description: Samart, Tuyishime, et al., 2021
 author:
 - affiliation: Mathematics, Michigan State University
   affiliation_url: https://github.com/JRaviLab
@@ -19,9 +19,10 @@ author:
   affiliation_url: https://cvm.msu.edu/directory/ravi
   name: Janani Ravi
   url: https://jravilab.github.io
-date: '2021-05-03'
+date: '2021-06-09'
 output:
-  html: distill::distill_article
+  distill::distill_article:
+    toc: true
   pdf_document:
     template: null
   html_document:
@@ -591,18 +592,18 @@ font-style: normal;
 
 <p class="comment">
 <strong>For attribution, please cite this work as:</strong> <br>
-Samart K$^{*}$, Tuyishime P$^{*}$, Krishnan A^, Ravi J^. Reconciling multiple connectivity scores for drug repurposing. *arXiv*(2020) [2009.09317](arxiv.org/abs/2009.09317) <br>
+Samart K$^{*}$, Tuyishime P$^{*}$, Krishnan A^, Ravi J^. Reconciling multiple connectivity scores for drug repurposing. *Briefings in Bioinformatics*(2021) (https://doi.org/10.1093/bib/bbab161) <br>
 $^{*}$co-primary authors: samartke@msu.edu; tuyishi1@msu.edu; <br> 
 ^co-corresponding authors: arjun@msu.edu; janani@msu.edu.
 </p>
 
 <p class="comment">
 <strong>BiBTeX citation:</strong> <br>
-$@$article{samart_tuyishime_reconciling_2020, <br>
+$@$article{samart_tuyishime_reconciling_2021, <br>
         title = {Reconciling Multiple Connectivity Scores for Drug Repurposing},<br>
-        url = {https://arxiv.org/abs/2009.09317},<br>
+        doi = {https://doi.org/10.1093/bib/bbab161},<br>
         author = {Samart, Kewalin and Tuyishime, Phoebe and Krishnan, Arjun and Ravi, Janani},<br>
-        year = {2020}<br>
+        year = {2021}<br>
 }
 </p>
 
